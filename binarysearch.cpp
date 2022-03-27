@@ -9,10 +9,11 @@ int binarySearch(int arr[], int size, int findNum){
 
     while (low <= high)
     {
+        mid = (high+low)/2;
         if (arr[mid] == findNum)
         {
             return mid;
-        } else if (mid > findNum){
+        }if (arr[mid] > findNum){
             high = mid - 1;
         } else{
             low = mid + 1;
@@ -39,6 +40,7 @@ int main(){
     {
         cout << arr[i] << " ";
     }
+    cout<< endl;
     
 
        int getIndex =binarySearch(arr, size, findNum);
