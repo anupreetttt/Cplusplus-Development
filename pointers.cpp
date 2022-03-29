@@ -36,4 +36,15 @@ int main()
 
     cout << p->length << endl;
     cout << p->breath << endl;
+
+    //Dynamic allocation of struct 
+cout << "Dynamic allocation of struct: " << endl;
+    Rectangle *pointer;
+    pointer = new Rectangle;
+
+    pointer->length = 32;
+    pointer->breath = 24;
+
+    cout << pointer->length << endl;
+    cout << pointer->breath << endl;
 }
