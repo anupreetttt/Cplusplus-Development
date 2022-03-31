@@ -9,13 +9,23 @@ public:
     Node *next;
 };
 
+// traversing a Link List
+void llTraversal(Node *ptr)
+{
+    while (ptr != NULL) // till node points towards NULL
+    {
+        cout << ptr->data << endl;
+        ptr = ptr->next;
+    }
+}
 
 int main()
 {
 
-    Node *head;
-    Node *second;
-    Node *third;
+// Link list implementaion
+    Node *head; // head is pointing towards first node
+    Node *second; // first node is pointing towards second
+    Node *third; // second node is pointing towards third
 
     head = new Node;
     second = new Node;
@@ -30,5 +40,6 @@ int main()
     third->data = 124;
     third->next = NULL;
 
+    llTraversal(head);
     return 0;
 }
