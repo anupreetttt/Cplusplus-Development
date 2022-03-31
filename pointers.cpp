@@ -15,7 +15,7 @@ int main()
     int a = 12;
     int *ptr = &a;
 
-    cout << &a << " " << *ptr << endl;
+    cout << a << " " << *ptr << endl;
 
     // Declaring reference variables.
     cout << "Declaring reference variables:- " << endl;
@@ -23,7 +23,7 @@ int main()
     int b = 12;
     b++;
     int &r = b;
-    cout << a << " " << r << endl;
+    cout << b << " " << r << endl;
 
     //Declaring a pointer to a struct
     cout << "Declaring a pointer to a struct:- " << endl;
@@ -37,8 +37,8 @@ int main()
     cout << p->length << endl;
     cout << p->breath << endl;
 
-    //Dynamic allocation of struct 
-cout << "Dynamic allocation of struct: " << endl;
+    //Dynamic allocation of struct
+    cout << "Dynamic allocation of struct: " << endl;
     Rectangle *pointer;
     pointer = new Rectangle;
 

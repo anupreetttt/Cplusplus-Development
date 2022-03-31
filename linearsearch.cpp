@@ -18,7 +18,7 @@ int main()
 
     int array[] = {2, 4, 6, 8, 10, 12, 14};
 
-    int find = 22df ;
+    int find = 22;
     int searchIndex = linearSearch(array, find);
 
     cout << searchIndex << endl;
