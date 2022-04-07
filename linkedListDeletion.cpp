@@ -46,6 +46,28 @@ Node *deleteAtIndex(Node *head, int index)
     return head;
 }
 
+Node *deleteWithValue(Node *head, int data)
+{
+
+    Node *p = head;
+    Node *q = head->next;
+
+while (q->data != data && q != NULL)
+{
+    p = p->next;
+    q = q->next;
+}
+if (q->data == data)
+{
+    p->next = q->next;
+    free(q);
+}
+
+
+    return head;
+}
+
+
 int main()
 {
 
@@ -80,10 +102,13 @@ int main()
     llTraversal(head);
     cout << "After deleting first element -->" << endl;
     head = deleteFirst(head);
-    llTraversal(head);
+    llTraversal(head); 
 
     cout << "After deleting at a index -->" << endl;
-    head = deleteAtIndex(head, index);
+    head = deleteAtIndex(head, 2);
+
+head = deleteWithValue(head, 124);
+llTraversal(head);
 
     return 0;
 }
