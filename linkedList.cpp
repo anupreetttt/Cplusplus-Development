@@ -21,11 +21,25 @@ void llTraversal(Node *ptr)
 
 Node *insertAtBeginning(Node *head, int data)
 {
-
     Node *ptr = new Node;
     ptr->next = head;
     ptr->data = data;
     return ptr;
+}
+
+Node *insertAtTheEnd(Node *head, int data)
+{
+    Node *ptr = new Node;
+    ptr->data = data;
+    Node *p = head;
+
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = ptr;
+    ptr->next = NULL;
+    return head;
 }
 
 Node *insertatPoint(Node *head, int data, int index)
@@ -35,6 +49,7 @@ Node *insertatPoint(Node *head, int data, int index)
     Node *p = head;
     int i = 0;
 
+    // while (i < index)
     while (i != index - 1)
     {
         p = p->next;
@@ -78,11 +93,17 @@ int main()
     fourth->next = NULL;
 
     llTraversal(head);
-    cout << "After insertion at the bieginning-->" << endl;
+    cout << "After insertion at the beginning-->" << endl;
+
     head = insertAtBeginning(head, 9696);
     llTraversal(head);
+
     cout << "After insertion at a particutlar index -->" << endl;
     head = insertatPoint(head, 777, 1);
+    llTraversal(head);
+
+    cout << "After insertion at the end -->" << endl;
+    head = insertAtTheEnd(head, 222);
     llTraversal(head);
 
     return 0;
