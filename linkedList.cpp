@@ -1,5 +1,4 @@
 #include <iostream>
-// #include <stdlib.h>
 using namespace std;
 
 class Node
@@ -9,102 +8,99 @@ public:
     Node *next;
 };
 
-// traversing a Link List
-void llTraversal(Node *ptr)
+void transversal(Node *ptr)
 {
-    while (ptr != NULL) // till node points towards NULL
+
+    while (ptr != NULL)
     {
         cout << ptr->data << endl;
         ptr = ptr->next;
     }
 }
 
-Node *insertAtBeginning(Node *head, int data)
+Node *insertionAtTheBeginning(Node *ptr)
 {
-    Node *ptr = new Node;
-    ptr->next = head;
-    ptr->data = data;
+
+    Node *newNode = new Node;
+    newNode->data = 15;
+    newNode->next = ptr->next;
+    ptr->next = newNode;
+
     return ptr;
 }
 
-Node *insertAtTheEnd(Node *head, int data)
-{
-    Node *ptr = new Node;
-    ptr->data = data;
-    Node *p = head;
-
-    while (p->next != NULL)
-    {
-        p = p->next;
-    }
-    p->next = ptr;
-    ptr->next = NULL;
-    return head;
-}
-
-Node *insertatPoint(Node *head, int data, int index)
+Node *insertionAtPosition(Node *ptr, int pos)
 {
 
-    Node *ptr = new Node;
-    Node *p = head;
+    Node *newNode = new Node;
+    Node *newPtr = ptr;
+
     int i = 0;
-
-    // while (i < index)
-    while (i != index - 1)
+    while (i != pos - 1)
     {
-        p = p->next;
+        newPtr = newPtr->next;
         i++;
     }
-    ptr->data = data;
-    ptr->next = p->next;
-    p->next = ptr;
-    return head;
+    newNode->data = 35;
+    newNode->next = newPtr->next;
+    newPtr->next = newNode;
+
+    return ptr;
+}
+
+Node *insertAtTheEnd(Node *ptr)
+{
+    Node *newNode = new Node;
+    Node *newPtr = ptr;
+
+    while (newPtr->next != NULL)
+    {
+        newPtr = newPtr->next;
+    }
+    newNode->data = 100;
+    newNode->next = NULL;
+    newPtr->next = newNode;
+
+    return ptr;
+    
+}
+
+void getLenght(){
+    
 }
 
 int main()
 {
 
-    // Link list implementaion
-    Node *head;   // head is pointing towards first node
-    Node *second; // first node is pointing towards second
-    Node *third;  // second node is pointing towards third
-    Node *fourth;
-    Node *inserted;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *fourth = new Node;
 
-    head = new Node;
-    second = new Node;
-    third = new Node;
-    fourth = new Node;
-    inserted = new Node;
-
-    head->data = 7;
+    head->data = 10;
     head->next = second;
 
-    // inserted->data = 6969;
-    // inserted->next = second;
-
-    second->data = 213;
+    second->data = 20;
     second->next = third;
 
-    third->data = 124;
+    third->data = 30;
     third->next = fourth;
 
-    fourth->data = 14;
+    fourth->data = 40;
     fourth->next = NULL;
 
-    llTraversal(head);
-    cout << "After insertion at the beginning-->" << endl;
+    cout << "Transversal: " << endl;
+    transversal(head);
 
-    head = insertAtBeginning(head, 9696);
-    llTraversal(head);
+    cout << "Insertion at the beginning of the linked list:  " << endl;
+    head = insertionAtTheBeginning(head);
+    transversal(head);
 
-    cout << "After insertion at a particutlar index -->" << endl;
-    head = insertatPoint(head, 777, 1);
-    llTraversal(head);
+    cout << "Insertion at a particular position of the linked list:  " << endl;
+    head = insertionAtPosition(head, 3);
+    transversal(head);
 
-    cout << "After insertion at the end -->" << endl;
-    head = insertAtTheEnd(head, 222);
-    llTraversal(head);
-
-    return 0;
+    cout << "Insertion at end of the linked list:  " << endl;
+    head = insertAtTheEnd(head);
+    transversal(head);
 }

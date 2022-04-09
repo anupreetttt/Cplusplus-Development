@@ -1,5 +1,4 @@
 #include <iostream>
-// #include <stdlib.h>
 using namespace std;
 
 class Node
@@ -9,17 +8,17 @@ public:
     Node *next;
 };
 
-// traversing a Link List
-void llTraversal(Node *ptr)
+void traversal(Node *ptr)
 {
-    while (ptr != NULL) // till node points towards NULL
+
+    while (ptr != NULL)
     {
         cout << ptr->data << endl;
         ptr = ptr->next;
     }
 }
 
-Node *deleteFirst(Node *head)
+Node *deletionAtThebeginning(Node *head)
 {
 
     Node *ptr = head;
@@ -28,13 +27,13 @@ Node *deleteFirst(Node *head)
     return head;
 }
 
-Node *deleteAtIndex(Node *head, int index)
+Node *deletionAtTheposition(Node *head, int pos)
 {
 
     Node *p = head;
     Node *q = head->next;
 
-    for (int i = 0; i < index - 1; i++)
+    for (int i = 0; i < pos - 1; i++)
     {
         p = p->next;
         q = q->next;
@@ -52,63 +51,52 @@ Node *deleteWithValue(Node *head, int data)
     Node *p = head;
     Node *q = head->next;
 
-while (q->data != data && q != NULL)
-{
-    p = p->next;
-    q = q->next;
-}
-if (q->data == data)
-{
-    p->next = q->next;
-    free(q);
-}
-
+    while (q->data != data && q != NULL)
+    {
+        p = p->next;
+        q = q->next;
+    }
+    if (q->data == data)
+    {
+        p->next = q->next;
+        free(q);
+    }
 
     return head;
 }
 
-
 int main()
 {
 
-    // Link list implementaion
-    Node *head;   // head is pointing towards first node
-    Node *second; // first node is pointing towards second
-    Node *third;  // second node is pointing towards third
-    Node *fourth;
-    Node *inserted;
+    Node *head = new Node;
+    Node *second = new Node;
+    Node *third = new Node;
+    Node *fourth = new Node;
 
-    head = new Node;
-    second = new Node;
-    third = new Node;
-    fourth = new Node;
-    inserted = new Node;
-
-    head->data = 7;
+    head->data = 10;
     head->next = second;
 
-    // inserted->data = 6969;
-    // inserted->next = second;
-
-    second->data = 213;
+    second->data = 20;
     second->next = third;
 
-    third->data = 124;
+    third->data = 30;
     third->next = fourth;
 
-    fourth->data = 14;
+    fourth->data = 40;
     fourth->next = NULL;
 
-    llTraversal(head);
-    cout << "After deleting first element -->" << endl;
-    head = deleteFirst(head);
-    llTraversal(head); 
+    cout << "Transversal: " << endl;
+    traversal(head);
 
-    cout << "After deleting at a index -->" << endl;
-    head = deleteAtIndex(head, 2);
+    cout << "Deletion at the beginning: " << endl;
+    head = deletionAtThebeginning(head);
+    traversal(head);
 
-head = deleteWithValue(head, 124);
-llTraversal(head);
+    cout << "Deletion at a position beginning: " << endl;
+    head = deletionAtTheposition(head, 2);
+    traversal(head);
 
-    return 0;
+    cout << "Deletion with value: " << endl;
+    head = deleteWithValue(head, 124);
+    traversal(head);
 }
