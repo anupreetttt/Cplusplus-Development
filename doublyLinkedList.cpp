@@ -27,6 +27,39 @@ void traversalReverse(Node *ptr)
     }
 }
 
+Node *insertAtBeginning(Node *ptr)
+{
+
+    Node *newNode = new Node;
+    newNode->data = 300;
+    newNode->prev = NULL;
+    newNode->next = ptr;
+    ptr->prev = newNode;
+    ptr = newNode;
+
+    return ptr;
+}
+
+Node *insertAtPosition(Node *ptr, int pos)
+{
+
+    Node *newNode = new Node;
+    newNode->data = 1124;
+    Node *newPtr = ptr;
+
+    for (int i = 1; i < pos - 1 ; i++)
+    {
+        newPtr = newPtr->next;
+    }
+
+    newNode->next = newPtr->next;
+    newNode->prev = newPtr;
+    newPtr->next = newNode;
+    newPtr->next->prev = newNode;
+
+    return ptr;
+}
+
 int main()
 {
 
@@ -55,6 +88,14 @@ int main()
     traversal(head);
     cout << endl;
     traversalReverse(fourth);
+    cout << endl;
+
+    head = insertAtBeginning(head);
+    traversal(head);
+ 
+    cout << endl;
+    head = insertAtPosition(head, 3);
+    traversal(head);
 
     return 0;
 }

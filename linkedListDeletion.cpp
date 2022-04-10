@@ -40,7 +40,7 @@ Node *deletionAtTheposition(Node *head, int pos)
     }
 
     p->next = q->next;
-    free(q);
+    delete q;
 
     return head;
 }

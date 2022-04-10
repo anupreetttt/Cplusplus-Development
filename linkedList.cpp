@@ -62,11 +62,50 @@ Node *insertAtTheEnd(Node *ptr)
     newPtr->next = newNode;
 
     return ptr;
-    
 }
 
-void getLenght(){
-    
+int maxElement(Node *ptr)
+{
+    int max = -9999;
+    while (ptr != NULL)
+    {
+        if (max < ptr->data)
+        {
+            max = ptr->data;
+        }
+        ptr = ptr->next;
+    }
+    return max;
+}
+
+int minElement(Node *ptr)
+{
+
+    int min = 9999;
+    while (ptr != NULL)
+    {
+        if (min > ptr->data)
+        {
+            min = ptr->data;
+        }
+        ptr = ptr->next;
+    }
+    return min;
+}
+
+Node *linearSerach(Node *ptr){
+
+    int key = 30;
+    while (ptr != NULL)
+    {
+        if (key == ptr->data)
+        {
+            return ptr;
+        }
+        ptr = ptr->next;
+    }
+    return NULL;   
+
 }
 
 int main()
@@ -103,4 +142,13 @@ int main()
     cout << "Insertion at end of the linked list:  " << endl;
     head = insertAtTheEnd(head);
     transversal(head);
+
+    cout << "Maximum element: " << endl;
+    cout << maxElement(head) << endl;
+
+    cout << "Minimum element: " << endl;
+    cout << minElement(head) << endl;
+
+    cout << "Linear search: " << endl;
+    cout << linearSerach(head) << endl;
 }

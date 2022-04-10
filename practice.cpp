@@ -8,36 +8,46 @@ public:
     Node *next;
 };
 
-void listTraversal(Node *p)
+Node *binarySearch(Node *ptr)
 {
-
-    while (p != NULL)
+    int key;
+    while (ptr != NULL)
     {
-        cout << p->data << endl;
-        p = p->next;
+        if (key == 30)
+        {
+            return ptr;
+        }
     }
 }
 
-Node *atTheEnd(Node *head, int data)
-{
+// int maxElement(Node *ptr)
+// {
+//     int max;
+//     while (ptr != NULL)
+//     {
+//         if (max < ptr->data)
+//         {
+//             max = ptr->data;
+//             ptr = ptr->next;
+//         }
+//     }
+//     return max;
+// }
 
-    Node *newNode = new Node;
-    newNode->data = data;
+// int minElement(Node *ptr)
+// {
 
-    Node * ptr = head;
-    while (ptr->next != NULL)
-    {
-        ptr = ptr->next;
-    }
-    ptr->next = newNode;
-    newNode->next = NULL;
-    return head;
-}
-
-Node *insertionAtIndex(){
-
-
-}
+//     int min;
+//     while (ptr != NULL)
+//     {
+//         if (min > ptr->data)
+//         {
+//             min = ptr->data;
+//             ptr = ptr->next;
+//         }
+//     }
+//     return min;
+// }
 
 int main()
 {
@@ -59,12 +69,14 @@ int main()
     fourth->data = 400;
     fourth->next = NULL;
 
-    listTraversal(head);
+    cout << binarySearch(head) << endl;
 
-    cout << "--------------------------------" << endl;
+    // cout << "--------------------------------" << endl;
+    // int largestElement = maxElement(head);
+    // cout << largestElement << endl;
 
-    head = atTheEnd(head, 500);
-    listTraversal(head);
+    // int smallestElement = minElement(head);
+    // cout << smallestElement << endl;
 
     return 0;
 }
