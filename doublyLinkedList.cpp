@@ -60,6 +60,22 @@ Node *insertAtPosition(Node *ptr, int pos)
     return ptr;
 }
 
+Node *deleteAtBeginning(Node *ptr){
+
+    Node *newPtr = ptr;
+    ptr = ptr->next;
+    delete(newPtr);
+
+    if (ptr)
+    {
+        ptr->prev = NULL;
+    }
+    
+
+    return ptr;
+
+}
+
 int main()
 {
 
@@ -97,5 +113,8 @@ int main()
     head = insertAtPosition(head, 3);
     traversal(head);
 
+    cout << endl;
+    head = deleteAtBeginning(head);
+    traversal(head);
     return 0;
 }
