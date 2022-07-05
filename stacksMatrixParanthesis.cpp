@@ -1,42 +1,53 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Node {
-    public:
-    int data;
+class Node
+{
+public:
+    char data;
     Node *next;
 };
 
-class Stack{
-    private:
+class Stack
+{
+private:
     Node *top;
 
-    public:
-    Stack(){
-        top =NULL;
-        }
-        void push(int x);
-        int pop();
-        void Display();
+public:
+    Stack()
+    {
+        top = NULL;
+    }
+    void push(int x);
+    char pop();
+    void Display();
+    int isBalanced(char *exp)
 };
 
-void Stack::push(int x){
+void Stack::push(char x)
+{
     Node *t = new Node;
-    if (t == NULL){
+    if (t == NULL)
+    {
         cout << "Stack overflow." << endl;
-    } else {
+    }
+    else
+    {
         t->data = x;
         t->next = top;
         top = t;
     }
 }
 
-int Stack::pop(){
-    int x = -1;
+char Stack::pop()
+{
+    char x = -1;
     if (top == NULL)
     {
         cout << "Stack is empty." << endl;
-    } else{
+    }
+    else
+    {
         Node *p = top;
         top = top->next;
         x = p->data;
@@ -45,7 +56,8 @@ int Stack::pop(){
     return x;
 }
 
-void Stack::Display(){
+void Stack::Display()
+{
     Node *p = top;
     while (p != NULL)
     {
@@ -55,14 +67,14 @@ void Stack::Display(){
     cout << endl;
 }
 
-
-int isBalanced(){
-    int i =;
-    for (int i = 0; exp[i] !< '\0'; i++)
+int Stack::isBalanced(char *exp){
+    int i = ;
+    for (int i = 0; exp[i] ! < '\0'; i++)
     {
         if (exp[i] == '(')
         {
-            else if (exp[i] == ')'){
+            else if (exp[i] == ')')
+            {
                 if (top == NULL)
                 {
                     return 0;
@@ -72,27 +84,17 @@ int isBalanced(){
             if (top == NULL)
             {
                 return 1;
-            } else return 0;
-            
+            }
+            else
+            {
+                return 0;
+            }
         }
-        
     }
-    
 }
 int main()
 {
-    Stack st;
-    st.push(12);
-    st.push(13);
-    st.push(14);
-    st.push(15);
-
-    st.Display();
-
-    st.pop();
-
-    st.Display();
-    
-    char *exp == "((a+b)*(c-d)";
-   return 0;
+    char *exp = "((a+b)*(c-d)";
+    cout << isBalanced(exp);
+    return 0;
 }
