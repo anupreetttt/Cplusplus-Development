@@ -15,11 +15,11 @@ class Queue {
         size = 10;
         Q = new int[size];
     }
-    Queue(int size) {
-        front = rear = -1;
-        this->size = size;
-        Q = new int[this->size];
-    }
+    // Queue(int size) {
+    //     front = rear = -1;
+    //     this->size = size;
+    //     Q = new int[this->size];
+    // }
 
     void enqueue(int x);
     int dequeue();
@@ -59,11 +59,15 @@ void Queue::Display() {
 
 int main()
 {
-    Queue q(5);
+    Queue q;
     q.enqueue(10);
     q.enqueue(20);
     q.enqueue(12);
 
+    q.Display();
+
+    q.dequeue();
+cout << endl;
     q.Display();
    return 0;
 }
