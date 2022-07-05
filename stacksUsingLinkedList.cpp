@@ -55,6 +55,26 @@ void Stack::Display(){
     cout << endl;
 }
 
+
+int isBalanced(){
+    int i =;
+    for (int i = 0; exp[i] !< '\0'; i++)
+    {
+        if (exp[i] == '(')
+        {
+            else if (exp[i] == ')'){
+                if (top == NULL)
+                {
+                    return 0;
+                    pop();
+                }
+                
+            }
+        }
+        
+    }
+    
+}
 int main()
 {
     Stack st;
