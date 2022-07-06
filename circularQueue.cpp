@@ -13,7 +13,7 @@ private:
 public:
     Queue()
     {
-        front = rear = -1;
+        front = rear = 0;
         size = 10;
         Q = new int[size];
     }
@@ -31,13 +31,13 @@ public:
 void Queue::enqueue(int x)
 {
 
-    if (rear == size - 1)
+    if ((rear+1)%size == front)
     {
         cout << "Queue is full" << endl;
     }
     else
     {
-        rear++;
+        rear = (rear+1)%size;
         Q[rear] = x;
     }
 }
@@ -45,24 +45,28 @@ void Queue::enqueue(int x)
 int Queue::dequeue()
 {
     int x = -1;
-    if (rear == front)
+    if (front == rear)
     {
         cout << "Queue is empty" << endl;
     }
     else
     {
-        x = Q[front + 1];
-        front++;
+        front = (front+1)%size;
+        x = Q[front];
     }
     return x;
 }
 
 void Queue::Display()
 {
-    for (int i = front + 1; i <= rear; i++)
+    int i = front+1;
+
+    do
     {
-        cout << Q[i] << endl;
-    }
+        cout << Q[i] << " ";
+        i = (i+1)%size;
+    } while (i!=(rear+1)%size);
+    cout << endl;
 }
 
 int main()
