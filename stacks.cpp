@@ -60,7 +60,6 @@ int pop(Stack *ptr){
 
 int main()
 {
-
     Stack *sp = new Stack;
     sp->size = 10;
     sp->top = -1;
