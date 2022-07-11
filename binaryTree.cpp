@@ -23,9 +23,8 @@ int main()
     Node *p = createNode(2);
     Node *p2 = createNode(4);
     Node *p3 = createNode(6);
-    p->leftChild = NULL;
-    p->rightChild = NULL;
-    p->data = 12;
+    p->leftChild = p2;
+    p->rightChild = p3;
 
 
    return 0;
