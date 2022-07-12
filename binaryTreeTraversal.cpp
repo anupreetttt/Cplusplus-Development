@@ -43,6 +43,18 @@ void postOrder(Node *root)
     }
 }
 
+// In order traversal
+
+void inOrder(Node *root)
+{
+    if (root != NULL)
+    {
+        postOrder(root->leftChild);
+        cout << root->data << " ";
+        postOrder(root->rightChild);
+    }
+}
+
 int main()
 {
     // Constructing the root node using function:-
@@ -62,5 +74,7 @@ int main()
     preOrder(p);
     cout << endl;
     postOrder(p);
+    cout << endl;
+    inOrder(p);
     return 0;
 }
