@@ -71,6 +71,40 @@ Node* search(Node *root, int key) {
     }
 }
 
+    Node *inOrderPredecessor(Node *root) {
+        root = root->leftChild;
+        while (root->rightChild != NULL)
+        {
+            root = root->rightChild;
+        }
+        return root;
+    }
+
+    Node *deleteNode(Node *root, int value){
+        Node *iPre;
+        if (root == NULL)
+        {
+            return NULL;
+        } if (root->leftChild == NULL && root->rightChild == NULL) // means node is a leaf node
+        {
+            free(root);
+            return NULL;
+        }
+        
+        if (value < root->data)
+        {
+           root->leftChild = deleteNode(root->leftChild, value);
+        } else if (value > root->data)
+        {
+            root->rightChild = deleteNode(root->rightChild, value);
+        } else {
+            iPre = inOrderPredecessor(root);
+            root->data = iPre->data;
+            root->leftChild = deleteNode(root->leftChild, iPre->data);
+        } 
+            return root; 
+    }
+
 int main()
 {
     // Constructing the root node using function:-
@@ -85,14 +119,9 @@ int main()
     p2->leftChild = p4; 
     p2->rightChild = p5;
  
-
-    Node* n = search(p, 5); 
-    if (n != NULL)
-    {
-        cout << "Found: " <<  n->data << endl;
-    } else {
-        cout << "Key not found." << endl;
-    }
-
+    inOrder(p);
+    deleteNode(p, 4);
+    cout << endl;
+    inOrder(p);
     return 0;
 }

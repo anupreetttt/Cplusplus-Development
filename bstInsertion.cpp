@@ -71,6 +71,40 @@ Node* search(Node *root, int key) {
     }
 }
 
+void insert(Node *root, int key){
+    Node *prev = NULL;
+    while (root != NULL)
+    {
+        prev = root;
+        if (key == root->data)
+        {
+            cout << "Cannot be inserted" << endl;
+            return;
+        } else if (key < root->data)
+        {
+            root = root->leftChild;
+        } else {
+            root = root->rightChild;
+        }
+    }
+    Node *ptr = createNode(key);
+    if (key < prev->data)
+    {
+        prev->leftChild = ptr;
+    } else {
+        prev->rightChild = ptr;
+    }
+    
+}
+
+    Node *delete(Node *root, value){
+        if (/* condition */)
+        {
+            /* code */
+        }
+        
+    }
+
 int main()
 {
     // Constructing the root node using function:-
@@ -86,13 +120,7 @@ int main()
     p2->rightChild = p5;
  
 
-    Node* n = search(p, 5); 
-    if (n != NULL)
-    {
-        cout << "Found: " <<  n->data << endl;
-    } else {
-        cout << "Key not found." << endl;
-    }
-
+    insert(p, 7);
+    cout << p->rightChild->rightChild->data << endl;
     return 0;
 }
