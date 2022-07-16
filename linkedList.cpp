@@ -152,3 +152,4 @@ int main()
     cout << "Linear search: " << endl;
     cout << linearSerach(head) << endl;
 }
+
