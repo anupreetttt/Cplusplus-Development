@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -55,7 +54,6 @@ int pop(Stack *ptr){
         ptr->top--;
         return val;
     }
-    
 }
 
 int main()
