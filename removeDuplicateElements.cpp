@@ -3,10 +3,12 @@ using namespace std; // This is an input struct. Do not edit.
 class LinkedList
 {
 public:
-    int value;
+    char value = 20;
     LinkedList *next = nullptr;
     // LinkedList(int value) { this->value = value; }
 };
+
+
 
 void transversal(LinkedList *ptr)
 {
