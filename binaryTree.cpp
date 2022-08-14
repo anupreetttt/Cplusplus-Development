@@ -13,7 +13,7 @@ Node* createNode(int data) {
     Node *ptr = new Node;
     ptr->data = data;
     ptr->leftChild = NULL;
-    ptr->rightChild = NULL;
+    ptr->rightChild = NULL;  
     return ptr;
 }
 
